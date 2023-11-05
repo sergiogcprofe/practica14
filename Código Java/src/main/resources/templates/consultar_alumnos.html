@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Listado de Alumnos</title>
+</head>
+<body>
+<h1>Listado de Alumnos</h1>
+
+<!-- Formulario para consultar alumnos -->
+<form th:action="@{/consultar}" method="get">
+  <input type="submit" value="Consultar Alumnos">
+</form>
+
+<!-- Aquí se mostrarán los resultados de la consulta -->
+<ul th:if="${alumnos != null}">
+  <li th:each="alumno : ${alumnos}">
+    <span th:text="${alumno.nombre}"></span>,
+    <span th:text="${alumno.apellido}"></span>,
+    <span th:text="${alumno.expediente}"></span>
+  </li>
+</ul>
+
+<a href="home">Volver al menú</a>
+</body>
+</html>
+
